@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript</title>
+</head>
+<body>
+    <h2 id="h">Old Heading</h2>
+    <h2 class= "h2">Class Heading</h2>
+    <p>hello</p>
+    <button id="btn" onclick="greet()">Greet Me!</button>
+    <br>
+    <img onmouseover="imgChanger()" id="img" src="sara pic 2.jpeg"/>
+
+    <script>
+        let Heading = document.getElementsByClassName("h2")
+        console.log("My Heading is :", Heading)
+
+        //properties and methods
+        let changetext = document.getElementById("h").innerText = "New Heading"; //innertext is a peroperty
+        //console.log("My Heading is :", Heading1)
+        changetext.innerText = changetext.innerText+ "change to new!!"
+        //console.log(changetext)
+
+        let para= document.getElementsByTagName("p")
+        console.log("para", para)
+
+        //button selector
+        function greet(){
+            document.querySelector("#btn").innerHTML = "Hello Good Morning!"
+        setTimeout(function() 
+            { btn.innerHTML = "Greet Me!";}, 2000);
+        }
+        
+        //image
+        function imgChanger(){
+            document.getElementById("img").src="sara img.png"
+            setTimeout(function() 
+            { img.src = "sara pic 2.jpeg";}, 1500);
+        }
+    </script>
+</body>
+</html>

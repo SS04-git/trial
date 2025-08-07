@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tak-DOM</title>
+    <style>
+    body.light-mode {
+        background-color: white;
+        color: black;
+    }
+
+    body.dark-mode {
+        background-color: black;
+        color: white;
+    }
+
+    #change.light-btn {
+        color: black;
+    }
+
+    #change.dark-btn {
+        color: darkred;
+    }
+</style>
+</head>
+<body>
+    <h2>Magic Sentence Revealer</h2>
+    <p id="magicText" onmouseover="revealText()" onmouseout="hideText()">Hover to reveal the magic sentence</p>
+
+    <h2>Zombie Name Generator</h2>
+    <button id="zombieName" onclick="generateZombieName()">Reveal Zombie Name</button>
+<p id="zombieResult"></p>
+
+    <h2>Light to Dark Mode Converter</h2>
+    <button id="change" class="light-btn" onclick="toggleMode()">Switch to Dark Mode</button>
+
+
+    
+    <script>
+        //1. Magic Sentence Revealer
+        function revealText() {
+    document.getElementById("magicText").innerText = "You are made of stars and strength!!";
+}
+function hideText() {
+    document.getElementById("magicText").innerText = "Hover to reveal the magic sentence";
+}
+
+    //3. Zombie Name Generator
+function generateZombieName() {
+    let newname = ["Rotten Claw", "Bloody Fang", "Creepy Grin", "Gnarly Guts", "Slimy Stalker"];
+    let name = newname[Math.floor(Math.random() * newname.length)];
+    document.getElementById("zombieResult").innerText = "Your zombie name is: " + name;
+}
+
+    //4.Light to Dark Mode Converter
+    function toggleMode() {
+    let body = document.body;
+    let button = document.getElementById("change");
+
+    let isDark = body.classList.contains("dark-mode");
+
+    if (isDark) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        button.classList.remove("dark-btn");
+        button.classList.add("light-btn");
+        button.innerText = "Switch to Dark Mode";
+    } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        button.classList.remove("light-btn");
+        button.classList.add("dark-btn");
+        button.innerText = "Switch to Light Mode";
+    }
+}
+    </script>
+</body>
+</html>
